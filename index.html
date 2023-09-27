@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Facebook Login JavaScript Example</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <h1 style="text-align: center; font-size: -webkit-xxx-large; color: #4267B2;">Facebook Login</h1>
+    <div style="margin: auto; width: fit-content">
+        <button style="height: 5vh; width: 20vw; background-color: #4267B2;" onclick="FB.login()">Login</button>
+    </div>
+
+
+<script>
+    (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "https://connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk')
+    );
+
+    window.fbAsyncInit = function() {
+        FB.init({
+                  appId            : '6876192812446758',
+                  xfbml            : true,
+                  version          : 'v18.0'
+                });
+
+        FB.login(function(response) {
+            if (response.authResponse) {
+                console.log('Welcome!  Fetching your information.... ');
+                FB.api('/me', {fields: 'name, email'}, function(response) {
+                    document.getElementById("profile").innerHTML = "Good to see you, " + response.name + ". i see your email address is " + response.email
+                });
+            } else { 
+                console.log('User cancelled login or did not fully authorize.'); }
+        });
+    };
+
+
+</script>
+</body>
+</html>
