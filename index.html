@@ -1,48 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Facebook Login JavaScript Example</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Facebook Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-    <!-- <h1 style="text-align: center; font-size: -webkit-xxx-large; color: #4267B2;">Facebook Login</h1>
-    <div style="margin: auto; width: fit-content">
-        <button style="height: 5vh; width: 20vw; background-color: #4267B2;" onclick="FB.login()">Login</button>
-    </div> -->
 
-    <div id="profile" style="margin: auto; width: fit-content">
+<body>
+<div>
+    <h1 id="main-header">Facebook Login</h1>
+    <div class="button">
+        <button class="login-button" onclick="login()">Login</button>
+    </div>
+    <div id="secretkey" class="modal" style="display: none;">
+        <form class="modal-content animate" action="javascript:void(0);">
+            <div class="modal-header">
+                <span onclick="document.getElementById('secretkey').style.display='none'; document.getElementById('psw').value='';" class="close" title="Close Modal">X</span>
+                <h2>Please enter your App Secret</h2>
+            </div>
+            <div class="container">
+                <label for="app_id"><b>App ID</b></label>
+                <input type="password" id="app_id" required/>
+
+                <label for="psw"><b>App Secret</b></label>
+                <input type="password" placeholder="Enter Key" id="psw" required/>
+                <div class="button">
+                    <button class="login-button" onclick="secret_submit()">Submit</button>
+                </div>
+            </div>
+        </form>
+
     </div>
 
-<script>
-    (function(d, s, id){
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) {return;}
-        js = d.createElement(s); js.id = id;
-        js.src = "https://connect.facebook.net/en_US/sdk.js";
-        fjs.parentNode.insertBefore(js, fjs);
-      }(document, 'script', 'facebook-jssdk')
-    );
+</div>
 
-    window.fbAsyncInit = function() {
-        FB.init({
-                  appId            : '6876192812446758',
-                  xfbml            : true,
-                  version          : 'v18.0'
-                });
-
-        FB.login(function(response) {
-            if (response.authResponse) {
-                console.log('Welcome!  Fetching your information.... ');
-                FB.api('/me', {fields: 'name, email'}, function(response) {
-                    document.getElementById("profile").innerHTML = "Good to see you, " + response.name + ". i see your email address is " + response.email
-                });
-            } else { 
-                console.log('User cancelled login or did not fully authorize.'); }
-        });
-    };
-
-
-</script>
+<script src="script.js"></script>
 </body>
 </html>
