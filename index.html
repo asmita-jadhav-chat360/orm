@@ -10,6 +10,10 @@
 <div>
     <h1 id="main-header">Facebook Login</h1>
     <div class="button">
+        <label for="app_id"><b>App ID</b></label>
+        <input type="text" id="app_id">
+    </div>
+    <div class="button">
         <button class="login-button" onclick="login()">Login</button>
     </div>
     <div id="secretkey" class="modal" style="display: none;">
@@ -19,9 +23,6 @@
                 <h2>Please enter your App Secret</h2>
             </div>
             <div class="container">
-                <label for="app_id"><b>App ID</b></label>
-                <input type="password" id="app_id" required/>
-
                 <label for="psw"><b>App Secret</b></label>
                 <input type="password" placeholder="Enter Key" id="psw" required/>
                 <div class="button">

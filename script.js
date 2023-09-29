@@ -12,22 +12,9 @@ var app_secret;
     );
 
 function login() {
+    app_id = document.getElementById('app_id').value;
+
     console.log('in func');
-    FB.login(function(response){
-        if(response.status='connected'){
-            console.log('Login successful.');
-
-            short_lived_user_token = response.authResponse.accessToken;
-
-            FB.api('/me/ids_for_apps', function(response){
-                app_id = response.data[0].id;
-            });
-        } else {
-            console.log('Unsuccessful Login');
-        }
-    });
-
-    console.log('after login');
 
     FB.init({
         appId       : app_id,
@@ -37,8 +24,21 @@ function login() {
 
     console.log('after init');
 
+    FB.login(function(response){
+        if(response.status='connected'){
+            console.log('Login successful.');
+
+            short_lived_user_token = response.authResponse.accessToken;
+
+        } else {
+            console.log('Unsuccessful Login');
+        }
+    });
+
+    console.log('after login');
+
     document.getElementById('secretkey').style.display='block';
-    document.getElementById('app_id').value = app_id;
+
 };
 
 function secret_submit(){
