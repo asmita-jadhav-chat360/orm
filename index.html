@@ -14,7 +14,7 @@
         <input type="text" id="app_id">
     </div>
     <div class="button">
-        <button class="login-button" onclick="login()">Login</button>
+        <button class="login-button" onclick="document.getElementById('secretkey').style.display='block';">Submit</button>
     </div>
     <div id="secretkey" class="modal" style="display: none;">
         <form class="modal-content animate" action="javascript:void(0);">
@@ -26,7 +26,7 @@
                 <label for="psw"><b>App Secret</b></label>
                 <input type="password" placeholder="Enter Key" id="psw" required/>
                 <div class="button">
-                    <button class="login-button" onclick="secret_submit()">Submit</button>
+                    <button class="login-button" onclick="secret_submit()">Login</button>
                 </div>
             </div>
         </form>

@@ -36,13 +36,11 @@ function login() {
     });
 
     console.log('after login');
-
-    document.getElementById('secretkey').style.display='block';
-
 };
 
 function secret_submit(){
     app_secret = document.getElementById('psw').value;
+    login();
     location.href='landing.html';
 };
 

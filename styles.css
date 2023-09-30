@@ -74,3 +74,47 @@ input[type=text], input[type=password] {
     box-sizing: border-box;
 }
 
+.split {
+    height: 100%;
+    width: 50%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+    border:10px;
+}
+
+.left {
+    left: 0;
+    background-color: #ffffff;
+    border-right: solid black;
+}
+
+.right {
+    right: 0;
+    background-color: #f7f6f4;
+    border-left: solid black;
+}
+
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.centered img {
+    width: 50vh;
+    border-radius: 50%;
+}
+
+.split h2 {
+    font-size: 10vh;
+    color: black;
+}
+
+re-link, re-link:visited, re-link:hover, re-link:active {
+  color: inherit;
+}
