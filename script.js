@@ -43,7 +43,7 @@ function login() {
 function secret_submit(){
     app_secret = document.getElementById('psw').value;
     login();
-    location.href='landing.html';
+    //location.href='landing.html';
 };
 
 
