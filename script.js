@@ -27,8 +27,10 @@ function login() {
     FB.login(function(response){
         if(response.status='connected'){
             console.log('Login successful.');
+            console.log(response.authResponse)
 
             short_lived_user_token = response.authResponse.accessToken;
+
 
         } else {
             console.log('Unsuccessful Login');
